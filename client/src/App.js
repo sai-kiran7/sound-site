@@ -3,14 +3,19 @@ import Login from './components/login'
 import Home from './components/home'
 import Signup from './components/signup'
 import { BrowserRouter , Routes, Route } from "react-router-dom";
-import { useState } from 'react';
+import React,{ useState } from 'react';
 
 function App() {
+
+
   const [ user, setLoginUser] = useState({});
+  
   var props={
     user:user,
     setLoginUser:setLoginUser
   }
+
+
   return (
     <div className="App">
       <BrowserRouter>

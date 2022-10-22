@@ -52,5 +52,5 @@ app.post("/signup", (req,res)=>{
     });
 });
 
-const PORT = 3001;
+const PORT = 0;
 app.listen(PORT, () => console.log(`App running on port ${PORT}`));

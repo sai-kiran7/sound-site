@@ -1,8 +1,9 @@
 import React, {useState} from "react"
-import "./login.css"
 import axios from "axios"
 import { useNavigate } from 'react-router-dom';
-
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 const Login = ({ setLoginUser}) => {
 
     const navigate = useNavigate();
@@ -29,17 +30,46 @@ const Login = ({ setLoginUser}) => {
             navigate("/")
         })
     }
+   
 
     return (
+        <Box 
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="100vh">
         <div className="login">
             <h1>Login</h1>
-            <input type="text" name="username" value={user.username} onChange={handleChange} placeholder="Username"></input><br/><br/>
-            <input type="password" name="password" value={user.password} onChange={handleChange}  placeholder="Password" ></input> <br/><br/>
-            <button className="button" onClick={login}>Login</button>
-            <div>or</div>
-            <button className="button" onClick={() => navigate("/signup")}>Sign Up</button>
+            {/* <input type="text" name="username" value={user.username} onChange={handleChange} placeholder="Username"></input><br/><br/> */}
+            <TextField
+                variant="outlined"
+                color="primary"
+                type="text"
+                label="Username"
+                name="username"
+                value={user.username}
+                onChange={handleChange}
+            /><br/><br/>
+            <TextField
+                variant="outlined"
+                color="primary"
+                type="password"
+                label="Password"
+                name="password"
+                value={user.password}
+                onChange={handleChange}
+            /> <br/><br/>
+            {/* <input type="password" name="password" value={user.password} onChange={handleChange}  placeholder="Password" ></input> <br/><br/> */}
+            <Button className='normal' variant="contained" color="primary" onClick={login}>
+                Login
+            </Button>
+            &ensp;
+            <Button variant="contained" color="primary" onClick={() => navigate("/signup")} >
+                Sign Up
+            </Button>
 
         </div>
+        </Box>
     )
 }
 

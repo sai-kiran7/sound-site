@@ -1,7 +1,9 @@
 import React, { useState } from "react"
-import "./register.css"
 import axios from "axios"
 import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 
 const Register = () => {
 
@@ -38,16 +40,54 @@ const Register = () => {
     }
 
     return (
-        <div className="register">
+        <Box 
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="100vh">
+        <div className="signup">
             {console.log("User", user)}
             <h1>Sign Up</h1>
-            <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={ handleChange }></input> <br/><br/>
-            <input type="text" name="username" value={user.username} placeholder="Your username" onChange={ handleChange }></input> <br/><br/>
-            <input type="password" name="password" value={user.password} placeholder="Your Password" onChange={ handleChange }></input> <br/><br/>
-            <button className="button" onClick={signup} >Sign up</button>
-            <div>or</div>
-            <button className="button" onClick={() => navigate("/login")}>Login</button>
+            {/* <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={ handleChange }></input>  */}
+            <TextField
+                variant="outlined"
+                color="primary"
+                type="text"
+                label="Name"
+                name="name"
+                value={user.name}
+                onChange={handleChange}
+            /> <br/><br/>
+            {/* <input type="text" name="username" value={user.username} placeholder="Your username" onChange={ handleChange }></input> <br/><br/> */}
+            <TextField
+                variant="outlined"
+                color="primary"
+                type="text"
+                label="Username"
+                name="username"
+                value={user.username}
+                onChange={handleChange}
+            /> <br/><br/>
+            {/* <input type="password" name="password" value={user.password} placeholder="Your Password" onChange={ handleChange }></input> <br/><br/> */}
+            <TextField
+                variant="outlined"
+                color="primary"
+                type="password"
+                label="Password"
+                name="password"
+                value={user.password}
+                onChange={handleChange}
+            /> <br/><br/>
+        
+            <Button variant="contained" color="primary" onClick={signup} >
+                Sign Up
+            </Button>
+            &ensp;  
+            <Button variant="contained" color="primary" onClick={() => navigate("/login")} >
+                Login
+            </Button>
         </div>
+        </Box>
     )
 }
 
