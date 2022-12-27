@@ -4,6 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Register = () => {
 
@@ -27,6 +32,7 @@ const Register = () => {
         const { name, username, password } = user
         if( name && username && password){
             // console.log(username);
+            // axios.post("http://43.206.117.90:5000/signup", user)
             axios.post("http://localhost:3001/signup", user)
             .then( res => {
                 alert(res.data.message)
@@ -40,6 +46,24 @@ const Register = () => {
     }
 
     return (
+        <div>
+            <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Auto-Surgery
+          </Typography>
+        </Toolbar>
+      </AppBar>
+        
         <Box 
         display="flex"
         justifyContent="center"
@@ -79,15 +103,16 @@ const Register = () => {
                 onChange={handleChange}
             /> <br/><br/>
         
-            <Button variant="contained" color="primary" onClick={signup} >
+            <Button variant="contained" color="secondary" onClick={signup} >
                 Sign Up
             </Button>
             &ensp;  
-            <Button variant="contained" color="primary" onClick={() => navigate("/login")} >
+            <Button variant="contained" color="secondary" onClick={() => navigate("/login")} >
                 Login
             </Button>
         </div>
         </Box>
+        </div>
     )
 }
 
