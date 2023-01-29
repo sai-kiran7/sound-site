@@ -59,7 +59,7 @@ const Register = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Auto-Surgery
+            Sound-Site
           </Typography>
         </Toolbar>
       </AppBar>
